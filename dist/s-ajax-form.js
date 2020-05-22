@@ -1,7 +1,7 @@
 'use strict';
 
 (function ($) {
-    $.fn.tabsCatalog = function (options) {
+    $.fn.sAjaxForm = function (options) {
         var defaults = {
             url: ''
         },

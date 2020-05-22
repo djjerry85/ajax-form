@@ -1,5 +1,5 @@
 (function ($) {
-    $.fn.tabsCatalog = function (options) {
+    $.fn.sAjaxForm = function (options) {
         let defaults = {
                 url: '',
             },
