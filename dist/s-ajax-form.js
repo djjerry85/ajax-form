@@ -7,6 +7,10 @@
         },
             settings = $.extend(defaults, options);
 
+        if (typeof showPopup != 'function') {
+            console.error("sAjaxForm: Function 'showPopup' is not defined");
+        }
+
         function getFormValues($form) {
             var res = {};
             $form.find('input,textarea').each(function () {

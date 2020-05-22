@@ -5,8 +5,12 @@
             },
             settings = $.extend(defaults, options);
 
+        if (typeof showPopup != 'function') {
+            console.error("sAjaxForm: Function 'showPopup' is not defined");
+        }
+
         function getFormValues($form) {
-            var res = {};
+            let res = {};
             $form.find('input,textarea').each(function () {
                 res[$(this).attr('name')] = $(this).val();
             });
@@ -27,8 +31,8 @@
         }
 
         function initForm(form) {
-            var $el = $(form);
-            var meta = {
+            let $el = $(form);
+            let meta = {
                 method: $el.attr('method') || 'POST',
                 hashtag: $el.data('hashtag'),
                 endpoint: $el.data('endpoint'),
@@ -42,13 +46,13 @@
                 disposeValidation($el);
 
 
-                var data = {};
-                var dataRaw = $el.serializeArray();
+                let data = {};
+                let dataRaw = $el.serializeArray();
 
                 data = dataRaw;
 
 
-                var options = {
+                let options = {
                     url: settings.url,
                     type: 'POST',
                     dataType: 'json',
@@ -60,10 +64,10 @@
                     $.each(dataRaw, function (index, item) {
                         data[item.name] = item.value;
                     });
-                    var files = $el.find('input[type="file"]').get(0).files;
-                    var dataF = new FormData();
-                    for (var i = 0; i < files.length; i++) {
-                        var file = files[i];
+                    let files = $el.find('input[type="file"]').get(0).files;
+                    let dataF = new FormData();
+                    for (let i = 0; i < files.length; i++) {
+                        let file = files[i];
 
                         // Check the file type.
                         /* if (!file.type.match('image.*')) {
